@@ -1,0 +1,11 @@
+﻿<h3>Exemplo</h3>
+<button @onclick="EmitirEvento">Emitir Evento</button>
+@code {
+    [Parameter]
+    public EventCallback<string> AconteceuAlgo { get; set; }
+
+    private async Task EmitirEvento()
+    {
+        await AconteceuAlgo.InvokeAsync(Guid.NewGuid().ToString());
+    }
+}

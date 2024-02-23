@@ -1,0 +1,21 @@
+﻿@page "/teste-evento"
+@using BlazorApp18.Client.Components
+<h3>TesteEvento</h3>
+@_teste
+<Exemplo AconteceuAlgo="valor => Teste = valor" />
+@code {
+    private string? _teste;
+
+    public string? Teste
+    {
+        get => _teste;
+        set { 
+            _teste = value;
+            Reagir();
+        }
+    }
+
+    public string TesteComputado => _teste?.ToUpper() ?? "Nada";
+
+    private void Reagir(){}
+}
